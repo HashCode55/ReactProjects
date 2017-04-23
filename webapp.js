@@ -5,6 +5,12 @@
 	* Now using the server to serve the static html files! 
 	* Express directly uses the static files to render the index.html 
 	* which contains the react code. 
+	*
+	* Express is being used for routing.
+	* 
+	* BodyParser is for parsing the requests and JSON.
+	*
+	* Pool is for connecting to the database.
 **/
 
 var express = require('express')
@@ -19,6 +25,7 @@ var z = 1;
 // 	{post_id:2,text:'Capstone evaluation postponed', time:'Time', votes:3, user_id:'jandura', board_id:'uj83dd', tag_one:'COE', tag_two:'CML'},
 // ];
 
+// Connect to the database 
 pool.connect(function(err, client, done) {
 	// connect to the database 
 	if(err) {
@@ -27,8 +34,10 @@ pool.connect(function(err, client, done) {
 	winston.log('info', 'Successfully connected to the database.');
 });
 
+// Express global variable 
 var app = express();
 
+// Use the static files 
 app.use(express.static('static')); // has to be static so that express can find it 
 
 // GET request 
@@ -39,15 +48,41 @@ app.get('/api/notes/', function(req, res){
 		if(err) {
 			return winston.log('error', 'Error connecting to the database in app.get');
 		}
-		client.query('SELECT * FROM posts', [], 
-			function(err, result){
-				done();
-				if(err){
-					return winston.log('error', 'query failed in app.get ', err);	
-				}
-				res.json(result.rows);
-				winston.log('info', 'Get request successfully handled.');
-			});
+		// log the query 
+		winston.log(req.query);
+
+		// filter on the basis of tags 
+		var tag;
+
+		if(req.query.tag){
+			tag = req.query.tag;
+			winston.log('info', tag)
+		}
+
+		// if tag is set cook a query with a where clause 
+		if(tag){
+			client.query("SELECT * FROM posts WHERE (tag1 = $1 OR tag2 = $1);",
+				[tag], 
+				function(err, result){
+					done();
+					if(err){
+						return winston.log('error', 'query failed in app.get [parametrized query]', err);	
+					}	
+					res.json(result.rows);
+					winston.log('info', 'Get request successfully handled [Paramed].');
+				});			
+		}	
+		else{
+			client.query('SELECT * FROM posts', [], 
+				function(err, result){
+					done();
+					if(err){
+						return winston.log('error', 'query failed in app.get ', err);	
+					}
+					res.json(result.rows);
+					winston.log('info', 'Get request successfully handled.');
+				});
+		}
 	});	
 });
 
@@ -59,9 +94,7 @@ app.post('/api/notes/', function(req, res) {
 	winston.log('info', 'Req body:', req.body);
 	var newNote = req.body;
 	newNote.post_id = z + 1;
-
 	// insert into postgresql 
-
 	pool.connect(function(err, client, done){
 		if(err) {
 			return winston.log('error', 'Error connecting to the database in app.post');
@@ -81,6 +114,7 @@ app.post('/api/notes/', function(req, res) {
 	});
 });
 
+// Start the server 
 var server = app.listen(3000, function() {
 	var port = server.address().port;
 	winston.log('info', 'Started server at port', port);

@@ -14,3 +14,6 @@ curl -v \
 	--header 'Content-Type: application/json' \
   	--data '{"text":"UTA001 link shared - *mimick link*", "time":"Time", "votes":"4", "user_id":"shaggy", "board_id":"uj83jd", "tag_one":"COE", "tag_two":"CML"}' \
   	http://localhost:3000/api/notes
+
+# Test the paramed query 
+curl -v localhost:3000/api/notes?tag=as  	
