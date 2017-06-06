@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
-
+var Loading = require('./Loading');
 // Separate the logic of state and UI. 
 // This is how React makes your life easier. 
 
@@ -106,7 +106,7 @@ class Popular extends React.Component {
 					onSelect={this.updateLanguage}
 				/>
 				{!this.state.repos
-					? <p>Loading...</p>
+					? <Loading />
 					: <RepoGrid repos={this.state.repos}/>
 				}
 			</div>	
