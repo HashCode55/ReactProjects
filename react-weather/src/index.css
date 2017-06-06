@@ -107,4 +107,40 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 10px 20px;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 100;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  background-color: #0f0f0f;
+  text-decoration: none;
+  font-weight: 100;
+  position: fixed;
+  bottom: 0;
 }

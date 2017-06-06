@@ -6,14 +6,14 @@ var API_SETUP = '&type=accurate&APPID=' + API_KEY;
 
 module.exports = {
 	currentweather: function (cityname) {
-		return axios.get(' http://api.openweathermap.org/data/2.5/weather?q=' + cityname + API_SETUP)
+		return axios.get(' https://api.openweathermap.org/data/2.5/weather?q=' + cityname + API_SETUP)
 			.then(function(res){
 				return res;
 			});
 	},
 
 	fivedayforecast: function (cityname) {
-		return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + cityname + API_SETUP)
+		return axios.get('https://api.openweathermap.org/data/2.5/forecast/daily?q=' + cityname + API_SETUP)
 			.then(function(res){
 				return res.data.list;
 			});

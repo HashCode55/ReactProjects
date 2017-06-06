@@ -1,13 +1,15 @@
 var React = require('react');
 var Header = require('./Header');
+var Footer = require('./Footer');
 var CityInput = require('./CityInput');
 var Forecast = require('./Forecast');
-
+var Display = require('./Display');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 
 class App extends React.Component {
+  // Top level routes live here! 
   render() {
     return (
   	  <Router>
@@ -22,6 +24,8 @@ class App extends React.Component {
             ); 
           }} />
           <Route path='/forecast' component={Forecast} />
+          <Route path='/display' component={Display} />
+          <Footer />
         </div>
       </Router>  
     );
