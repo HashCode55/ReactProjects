@@ -8,13 +8,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">        
-        <Header />          
         <Menu>
-          <a id="home" className="menu-item" href="/">Home</a>
-          <a id="about" className="menu-item" href="/about">About</a>
-          <a id="contact" className="menu-item" href="/contact">Contact</a>
-          <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+          <p className='font-appeal'>FILTERS</p>
+            <div className='filter-container'>
+              <button className='filter-btn btn-success'>GORE</button>
+              <button className='filter-btn btn-success'>DEATH</button>
+              <button className='filter-btn btn-success'>HARDCORE</button>
+              <button className='filter-btn btn-success'>ACCIDENTAL</button>
+            </div>  
         </Menu>
+        <Header />          
+        
         <Visual />
       </div>
     );

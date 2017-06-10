@@ -15,6 +15,11 @@ body {
 	background-repeat: repeat;	
 }
 
+.font-appeal {
+	font-weight: 100;
+	text-align: center;
+}
+
 .card-item { 
 	width: 33.33%; 
 }
@@ -36,7 +41,7 @@ body {
     position: relative;
 }
 .visual-container {	
-	
+	margin: 50px;
 }
 
 .card-container {
@@ -86,6 +91,30 @@ body {
   border-radius: 4px;
 }
 
+.filter-btn {
+	text-decoration: none;
+	padding: 15px;
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: none;
+	border: 1px solid transparent;
+	margin: 5px; 
+}
+
+.filter-btn:hover {
+	background-color: #0f0f0f;
+	color: #fff;
+}
+
+.filter-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
 .btn-success {
   color: #0f0f0f;
   background-color: #fff;
@@ -120,8 +149,8 @@ body {
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
+  background: #0f0f0f;
+  padding: 2.5em 1em 0;
   font-size: 1.15em;
 }
 
@@ -133,10 +162,10 @@ body {
 /* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
-  padding: 0.8em;
+  padding: 0.3em;
 }
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 }
