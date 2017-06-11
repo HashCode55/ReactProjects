@@ -1,26 +1,37 @@
 var React = require('react');
-var Header = require('./Header');
-var Menu = require('react-burger-menu').slide;
 var Visual = require('./Visual');
+var Read = require('./Read');
+var ReactRouter = require('react-router-dom');
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
 
-class App extends React.Component {
 
-  render() {
+
+class App extends React.Component {  
+  render() {    
     return (
-      <div className="container">        
-        <Menu>
-          <p className='font-appeal'>FILTERS</p>
-            <div className='filter-container'>
-              <button className='filter-btn btn-success'>GORE</button>
-              <button className='filter-btn btn-success'>DEATH</button>
-              <button className='filter-btn btn-success'>HARDCORE</button>
-              <button className='filter-btn btn-success'>ACCIDENTAL</button>
-            </div>  
-        </Menu>
-        <Header />          
-        
-        <Visual />
-      </div>
+      <Router>
+        <div className="container">        
+
+          <Route exact path='/' render={function() {
+            return (
+              <div className='home-container'>
+                <p className='home-heading'>TheDarkReddit</p>
+                <div>
+                  <Link role='button' to='/visual' className='btn' style={{margin:'5px', padding:'15px 35px'}}>Visual</Link>                
+                  <Link role='button' to='/read' className='btn' style={{margin:'5px', padding:'15px 35px'}}>Read</Link>                
+                </div>  
+              </div>
+            );
+          }} />
+
+          <Route path='/visual' component={Visual} />
+
+          <Route path='/read' component={Read} />
+
+        </div>
+      </Router>  
     );
   }
 }

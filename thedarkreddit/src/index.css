@@ -15,6 +15,11 @@ body {
 	background-repeat: repeat;	
 }
 
+hr
+{ 
+   margin: 0px;
+} 
+
 .font-appeal {
 	font-weight: 100;
 	text-align: center;
@@ -24,9 +29,25 @@ body {
 	width: 33.33%; 
 }
 
+.home-heading {
+	color: #fff;
+    font-size: 80px;
+    font-weight: 100;
+}
+
 .container, #root {
 	width: 100%;
 	height: 100%;	
+}
+
+.home-container {
+	height: 100%;
+    width: 100%;
+    background: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-container {
@@ -68,27 +89,47 @@ body {
 }
 
 .itemcenter {
-  flex: 0 1 auto;
-  position: absolute;             
-  left: 50%;
-  transform: translateX(-50%);
+	flex: 0 1 auto;
+	position: absolute;             
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.btn-header-right {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);    
+}
+
+.btn-header-right:hover {
+	background-color: #0f0f0f;
+	color: #FFF;
+}
+
+.btn-header-right:onClick {
+	background-color: #0f0f0f;
+	color: #FFF;
 }
 
 .btn {
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  	width: 125px;
+    font-weight: 100;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px;
+    color: #0f0f0f;
+    border: 1px solid transparent;
+    border-radius: 36px;
+    background-color: #FFF;
+    outline: none;
+    text-align: center;
+}
+
+.btn:hover {
+	background-color: #000;
+	color: #fff;
 }
 
 .filter-btn {
@@ -115,12 +156,65 @@ body {
 	align-content: center;
 	justify-content: center;
 }
+
 .btn-success {
   color: #0f0f0f;
   background-color: #fff;
   border-radius: 10px;
 }
 
+
+/* Read page css settings */
+.read-card-item {
+  width: calc(100% - 100px);
+  margin: 10px 50px;
+  background-color: #fff;
+}
+
+.read-container {
+    height: 100%;    
+    display: flex;    
+    flex-direction: column;
+    background: #201e24;
+    margin: 0px 110px;
+}
+
+.read-card-header {
+    height: 30px;    
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.read-card-body {
+  height: 90px;
+  position: relative;
+}
+
+.read-header-title {
+  margin: 0px;
+  left: 10px;
+  position: absolute;  
+}
+
+.read-subr-info {
+  margin: 0px;
+  right: 10px;
+  position: absolute;  
+}
+
+.read-body-data {
+  margin: 0px;
+  left: 10px;
+  right: 10px;
+  height: 100%;
+  position: absolute;
+}
+
+.read-card-border {
+
+}
 
 /* Position and sizing of burger button */
 .bm-burger-button {

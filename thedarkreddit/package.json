@@ -8,7 +8,8 @@
     "react-bootstrap": "^0.31.0",
     "react-burger-menu": "^2.0.2",
     "react-dom": "^15.5.4",
-    "react-masonry-component": "^5.0.7"
+    "react-masonry-component": "^5.0.7",
+    "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

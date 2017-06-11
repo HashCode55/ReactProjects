@@ -1,7 +1,9 @@
 var React = require('react');
-var Card = require('./Card');
+var VisualCard = require('./VisualCard');
 var Masonry = require('react-masonry-component');
 var api = require('../utils/api');
+var Header = require('./Header');
+var Menu = require('react-burger-menu').slide;
 
 var masonryOptions = {
     transitionDuration: 0
@@ -50,7 +52,7 @@ class Visual extends React.Component {
 		// 		});
 		// 	}.bind(this));
 		// {this.state.images.map(function(img_url){
-                // 		return <Card image={img_url}/>;
+                // 		return <VisualCard image={img_url}/>;
                 // })}
 	}
 
@@ -71,22 +73,41 @@ class Visual extends React.Component {
 	}
 
 	render() {
+		const btnstyle = {
+			margin:'5px', 
+			width:'auto'
+	    }
 		console.log(this.state);
 		var bottom = this.state.bottom;		         	
 		if (bottom) {
 			this.addImages();
 		}
 		return (
-		<div className='visual-container'>		
-			<Masonry
-                className={''} 
-                options={masonryOptions} 
-                disableImagesLoaded={false} 
-                updateOnEachImageLoad={false} 
-            >                    
-            	<Card />
-            </Masonry>
-        </div>    
+		<div>			
+		
+			<Menu>
+				<p className='font-appeal'>FILTERS</p>
+				<div className='filter-container'>
+					<button className='btn' style={btnstyle}>GORE</button>
+					<button className='btn' style={btnstyle}>DEATH</button>
+					<button className='btn' style={btnstyle}>HARDCORE</button>
+					<button className='btn' style={btnstyle}>ACCIDENTAL</button>
+				</div>  
+			</Menu>
+
+            <Header /> 
+
+			<div className='visual-container'>		
+				<Masonry
+	                className={''} 
+	                options={masonryOptions} 
+	                disableImagesLoaded={false} 
+	                updateOnEachImageLoad={false}>                    	               
+	            	<VisualCard />
+	            </Masonry>
+	        </div>  
+
+		</div>	        
 		);
 	}
 }
