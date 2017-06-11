@@ -17,7 +17,7 @@ class App extends React.Component {
           <Route exact path='/' render={function() {
             return (
               <div className='home-container'>
-                <p className='home-heading'>TheDarkReddit</p>
+                <p className='home-heading'>THE DARK REDDIT</p>
                 <div>
                   <Link role='button' to='/visual' className='btn' style={{margin:'5px', padding:'15px 35px'}}>Visual</Link>                
                   <Link role='button' to='/read' className='btn' style={{margin:'5px', padding:'15px 35px'}}>Read</Link>                

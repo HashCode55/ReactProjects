@@ -5,7 +5,7 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className='header-container'>
-				<p className='itemcenter'>TheDarkReddit</p>
+				<p className='itemcenter'>THE DARK REDDIT</p>
 				<Link to='/visual' className='btn-header-right btn' style={{left:'80%'}}>Visual</Link>
 				<Link to='/read' className='btn-header-right btn' style={{left:'90%'}}>Read</Link>
 			</div>

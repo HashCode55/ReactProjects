@@ -5,10 +5,9 @@ class ReadCard extends React.Component {
 		return (
 			<div className='read-card-item'>
 				<div className='read-card-header'>
-					<p className='read-header-title'>This is a sample title</p>
-					<p className='read-subr-info'>Dummy Info</p>
+					<p className='read-header-title'>Never Look down.</p>
+					<p className='read-subr-info'>/r/nosleep 89% Upvotes</p>
 				</div>				
-				<hr />
 				<div className='read-card-body'>
 					<p className='read-body-data'>This is dummy data</p>
 				</div>
